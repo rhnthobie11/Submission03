@@ -1,3 +1,5 @@
+const assert = require('assert');
+
 Feature('Liking Restaurants');
 
 Before(({ I }) => {
@@ -9,17 +11,23 @@ Scenario('showing empty liked restaurants', ({ I }) => {
   I.see('Tidak ada restaurant untuk ditampilkan', 'h3');
 });
 
-Scenario('liking one restaurant', ({ I }) => {
+Scenario('liking one restaurant', async ({ I }) => {
   I.see('Tidak ada restaurant untuk ditampilkan', 'h3');
-
   I.amOnPage('/');
 
-  I.seeElement('.restaurant__title a');
-  I.click(locate('.restaurant__title a').first());
+  await I.waitForElement('.post-item__title a', 3);
 
-  I.seeElement('#likeButton');
+  const firstResto = locate('.post-item__title a').first();
+  const firstRestoTitle = await I.grabTextFrom(firstResto);
+  I.click(firstResto);
+
+  await I.waitForElement('#likeButton', 5);
   I.click('#likeButton');
 
   I.amOnPage('/#/favorites');
-  I.seeElement('.post-item');
+  await I.waitForVisible('.posts', 5);
+  await I.seeElement('.posts');
+  const likedRestoTitle = await I.grabTextFrom('.post-item__title');
+
+  assert.strictEqual(firstRestoTitle, likedRestoTitle);
 });

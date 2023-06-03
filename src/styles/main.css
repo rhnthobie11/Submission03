@@ -97,25 +97,55 @@ body {
  * Jumbotron
  */
 
-.hero {
+/* .hero {
   display: flex;
   align-items: center;
   min-height: 380px;
   width: 100%;
   text-align: center;
-  background-image: url('../public/hero-image_1.jpg');
+  background-image: url('../public/images/hero-image_1.jpg');
   background-position: bottom;
   background-color: rgb(52, 52, 52);
   background-repeat: no-repeat;
   background-size: cover;
+} */
+
+.hero {
+  width: 100%;
+  height: 35rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.hero-img img {
+  object-fit: cover;
+  width: 100%;
+  height: 35rem;
 }
 
 .hero__inner {
-  margin: 0 auto;
+  /* margin: 0 auto;
   max-width: 800px;
   background-color: rgba(50, 50, 50, 0.5);
   padding: 1rem;
+  border-radius: 10px; */
+  width: 80%;
+  text-align: center;
+  background-color: rgba(50, 50, 50, 0.5);
+  padding: 1rem;
   border-radius: 10px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  position: absolute;
 }
 
 .hero__title {
@@ -129,6 +159,7 @@ body {
   margin-top: 16px;
   font-size: 18px;
   font-weight: 300;
+  height: 44px;
 }
 
 
@@ -282,6 +313,10 @@ main {
 
 .restaurant__overview h3 {
   margin: 0.5rem 1rem;
+}
+
+.hidden-text {
+  display: none;
 }
 
 /*

@@ -4,13 +4,6 @@ import { createRestoItemTemplate } from '../template/template-creator';
 const Home = {
   async render() {
     return `
-    <div class="hero">
-      <div class="hero__inner">
-      <h1 class="hero__title">The Place of A Peace</h1>
-      <p class="hero__tagline">Come n enjoy ur time with the best food in town! <br><span>won't disappoint you!</span></p>
-      </div>
-    </div>
-
     <section id="content">
       <div class="newest">
        <h1 class="newest__label">Explore Eat & Go</h1>
